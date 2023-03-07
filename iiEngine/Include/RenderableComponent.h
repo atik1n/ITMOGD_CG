@@ -4,15 +4,15 @@
 
 class RenderableComponent {
 protected:
-	DirectX::XMFLOAT4* points;
-	int pointsAmount;
+	DirectX::XMFLOAT4* vertices;
+	int verticesAmount = 0;
 	int* indices;
-	int indicesAmount;
+	int indicesAmount = 0;
 	
-	DirectX::XMFLOAT4 color = DirectX::XMFLOAT4(0, 0, 0, 0);
-	DirectX::XMFLOAT3 scale = DirectX::XMFLOAT3(1, 1, 1);
-	DirectX::XMFLOAT3 rotation = DirectX::XMFLOAT3(0, 0, 0);
-	DirectX::XMFLOAT3 position = DirectX::XMFLOAT3(0, 0, 0);
+	DirectX::XMFLOAT4 color = DirectX::XMFLOAT4(1.f, .0f, 1.f, 1.f);
+	DirectX::XMFLOAT3 scale = DirectX::XMFLOAT3(1.f, 1.f, 1.f);
+	DirectX::XMFLOAT3 rotation = DirectX::XMFLOAT3(.0f, .0f, .0f);
+	DirectX::XMFLOAT3 position = DirectX::XMFLOAT3(.0f, .0f, .0f);
 	
 	ID3D11InputLayout* layout;
 	ID3D11PixelShader* pixelShader;
@@ -35,7 +35,8 @@ protected:
 
 	LPCWSTR shaderPath = L"./Src/Shaders/BasicShader.hlsl";
 	
-	virtual ~RenderableComponent() = default;
+	virtual ~RenderableComponent();
+	void DeleteData();
 	
 	virtual void InitBufferVertex();
 	virtual void InitBufferIndex();

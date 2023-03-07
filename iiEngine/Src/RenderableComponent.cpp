@@ -6,6 +6,21 @@ void RenderableComponent::Initialize() {
 	InitRasterizer();
 }
 
+void RenderableComponent::DeleteData() {
+	delete vertices;
+	verticesAmount = 0;
+	delete indices;
+	indicesAmount = 0;
+}
+
+RenderableComponent::~RenderableComponent() {
+	delete vb;
+	delete ib;
+	delete cb;
+	DeleteData();
+}
+
+
 void RenderableComponent::InitBufferVertex() {
 	vertexBufDesc = {};
 	vertexBufDesc.Usage = D3D11_USAGE_DEFAULT;
@@ -13,10 +28,10 @@ void RenderableComponent::InitBufferVertex() {
 	vertexBufDesc.CPUAccessFlags = 0;
 	vertexBufDesc.MiscFlags = 0;
 	vertexBufDesc.StructureByteStride = 0;
-	vertexBufDesc.ByteWidth = sizeof(DirectX::XMFLOAT4) * pointsAmount;
+	vertexBufDesc.ByteWidth = sizeof(DirectX::XMFLOAT4) * verticesAmount;
 
 	vertexData = {};
-	vertexData.pSysMem = points;
+	vertexData.pSysMem = vertices;
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
@@ -197,8 +212,8 @@ void RenderableComponent::UpdateWorldMatrix() {
 
 void RenderableComponent::SetColor(DirectX::XMFLOAT4 newColor) {
 	color = newColor;
-	for (int i = 1; i < pointsAmount; i += 2) {
-		points[i] = color;
+	for (int i = 1; i < verticesAmount; i += 2) {
+		vertices[i] = color;
 	}
 }
 

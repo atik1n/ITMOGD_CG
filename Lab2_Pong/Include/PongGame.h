@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "Game.h"
+#include "CircleComponent.h"
 #include "QuadComponent.h"
 #include "SimpleMath.h"
 #include "SimpleMath.inl"
@@ -18,7 +19,7 @@ protected:
     QuadComponent* racket1;
     float racketInput = .0f;
     QuadComponent* racket2;
-    QuadComponent* ball;
+    CircleComponent* ball;
     bool started = false;
     
     void Update() override;
