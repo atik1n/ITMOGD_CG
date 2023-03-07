@@ -4,8 +4,7 @@ PongGame::PongGame(LPCWSTR name) :
     Game::Game(name), ballPos(DirectX::XMFLOAT2(0, 0)),
     racket1(new QuadComponent()),
     racket2(new QuadComponent()),
-    ball(new QuadComponent())
-{
+    ball(new QuadComponent()) {
     racket1->SetColor(.9f, .9f, .9f, 1.f);
 	racket1->SetPosition(-.9f, 0, 0);
 	racket1->SetScale(racketWidth, racketHeight, 1);
@@ -122,4 +121,3 @@ void PongGame::Update() {
 	racketVelocity = racketAi * racketSpeed * Game::instance->deltaTime;
 	racket1->SetPosition(racket1->GetPosition().x, racket1->GetPosition().y + racketVelocity, 0);
 }
-

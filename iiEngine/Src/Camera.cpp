@@ -45,4 +45,3 @@ void Camera::Update() {
     float aspectRatio = static_cast<float>(Game::instance->GetDisplay().GetScreenWidth()) / Game::instance->GetDisplay().GetScreenHeight();
     projMatrix = DirectX::XMMatrixPerspectiveFovLH(fovRadians, aspectRatio, .1f, 1000.f);
 }
-

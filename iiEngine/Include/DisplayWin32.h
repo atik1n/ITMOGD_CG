@@ -21,4 +21,3 @@ public:
 	int GetScreenHeight();
 	HWND& GetHWnd();
 };
-

@@ -5,8 +5,7 @@
 #include "SimpleMath.h"
 #include "SimpleMath.inl"
 
-class PongGame : public Game
-{
+class PongGame : public Game {
 protected:
     DirectX::SimpleMath::Vector2 ballPos;
     float racketSpeed = .5f;
