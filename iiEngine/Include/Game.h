@@ -14,6 +14,9 @@
 #include <chrono>
 #include <vector>
 
+#include "SimpleMath.h"
+#include "SimpleMath.inl"
+
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3dcompiler.lib")
@@ -37,6 +40,10 @@ protected:
 	ID3D11Texture2D* backTex;
 	ID3D11RenderTargetView* rtv; // Back buffer?
 	D3D11_VIEWPORT viewport;
+
+	D3D11_TEXTURE2D_DESC depthTexDesc;
+	ID3D11Texture2D* db;
+	ID3D11DepthStencilView* dv;
 
 	bool isExitRequested;
 

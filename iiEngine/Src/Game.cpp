@@ -56,6 +56,22 @@ void Game::CreateBackBuffer() {
 
 void Game::PrepareResources() {
 	CreateBackBuffer();
+
+	depthTexDesc = {};
+	depthTexDesc.ArraySize = 1;
+	depthTexDesc.MipLevels = 1;
+	depthTexDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	depthTexDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+	depthTexDesc.CPUAccessFlags = 0;
+	depthTexDesc.MiscFlags = 0;
+	depthTexDesc.Usage = D3D11_USAGE_DEFAULT;
+	depthTexDesc.Width = Game::instance->GetDisplay().GetScreenWidth();
+	depthTexDesc.Height = Game::instance->GetDisplay().GetScreenHeight();
+	depthTexDesc.SampleDesc = {1, 0};
+
+	Game::instance->GetDevice()->CreateTexture2D(&depthTexDesc, nullptr, &db);
+	
+	Game::instance->GetDevice()->CreateDepthStencilView(db, nullptr, &dv);
 	
 	viewport = {};
 	viewport.Width = static_cast<float>(display->GetScreenWidth());
@@ -74,7 +90,8 @@ void Game::Initialize() {
 
 void Game::PrepareFrame() {
 	context->ClearState();
-	context->OMSetRenderTargets(1, &rtv, nullptr);
+	context->ClearDepthStencilView(dv, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.f, 0);
+	context->OMSetRenderTargets(1, &rtv, dv);
 	context->RSSetViewports(1, &viewport);
 
 	float color[] = { Game::instance->GetTotalTime(), 0.1f, 0.1f, 1.0f };

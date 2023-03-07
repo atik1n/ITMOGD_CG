@@ -24,10 +24,12 @@ protected:
 	D3D11_BUFFER_DESC vertexBufDesc;
 	D3D11_SUBRESOURCE_DATA vertexData;
 	ID3D11Buffer* vb;
+	
 	D3D11_BUFFER_DESC indexBufDesc;
 	D3D11_SUBRESOURCE_DATA indexData;
 	CD3D11_RASTERIZER_DESC rastDesc;
 	ID3D11Buffer* ib;
+	
 	D3D11_BUFFER_DESC constBufDesc;
 	ID3D11Buffer* cb;
 

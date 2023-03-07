@@ -3,8 +3,8 @@
 
 class CircleComponent : public RenderableComponent {
 protected:
-    static DirectX::XMFLOAT4* CalculateCircle(int);
     void CalculateVertices(int);
 public:
     CircleComponent();
+    static DirectX::XMFLOAT4* CalculateCircle(int);
 };

@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab1_MySuper3DApp", "Lab1_M
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab2_Pong", "Lab2_Pong\Lab2_Pong.vcxproj", "{14C3D77E-37C0-45A4-AB68-DA28728DBBE3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab3_Planets", "Lab3_Planets\Lab3_Planets.vcxproj", "{06E6555B-6586-44BE-AE20-C285E66ACAA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{14C3D77E-37C0-45A4-AB68-DA28728DBBE3}.Release|x64.Build.0 = Release|x64
 		{14C3D77E-37C0-45A4-AB68-DA28728DBBE3}.Release|x86.ActiveCfg = Release|Win32
 		{14C3D77E-37C0-45A4-AB68-DA28728DBBE3}.Release|x86.Build.0 = Release|Win32
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Debug|x64.ActiveCfg = Debug|x64
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Debug|x64.Build.0 = Debug|x64
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Debug|x86.ActiveCfg = Debug|Win32
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Debug|x86.Build.0 = Debug|Win32
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Release|x64.ActiveCfg = Release|x64
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Release|x64.Build.0 = Release|x64
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Release|x86.ActiveCfg = Release|Win32
+		{06E6555B-6586-44BE-AE20-C285E66ACAA4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

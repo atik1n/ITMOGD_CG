@@ -14,8 +14,6 @@ DirectX::XMFLOAT4* CircleComponent::CalculateCircle(int points) {
 }
 
 void CircleComponent::CalculateVertices(int points) {
-    auto tmpVertices = CalculateCircle(points);
-
     verticesAmount = (points + 1) * 2;
     vertices = new DirectX::XMFLOAT4[verticesAmount];
     indicesAmount = points * 3;
@@ -23,9 +21,11 @@ void CircleComponent::CalculateVertices(int points) {
 
     vertices[0] = DirectX::XMFLOAT4(.0f, .0f, .0f, 1.f);
 
+    auto circleVertices = CalculateCircle(points);
+
     for (int i = 0; i < points; ++i) {
-        vertices[2 * (i + 1)] = tmpVertices[i];
-        std::cout << tmpVertices[i].x << std::endl;
+        vertices[2 * (i + 1)] = circleVertices[i];
+        std::cout << circleVertices[i].x << std::endl;
     }
     for (int i = 0; i <= points; ++i) {
         vertices[2 * i + 1] = color;
@@ -38,7 +38,7 @@ void CircleComponent::CalculateVertices(int points) {
     }
     indices[points * 3 - 1] = 1;
 
-    delete tmpVertices;
+    delete circleVertices;
 }
 
 CircleComponent::CircleComponent() {

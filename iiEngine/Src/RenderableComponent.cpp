@@ -14,12 +14,11 @@ void RenderableComponent::DeleteData() {
 }
 
 RenderableComponent::~RenderableComponent() {
-	delete vb;
-	delete ib;
-	delete cb;
+	vb->Release();
+	ib->Release();
+	cb->Release();
 	DeleteData();
 }
-
 
 void RenderableComponent::InitBufferVertex() {
 	vertexBufDesc = {};
@@ -75,7 +74,7 @@ void RenderableComponent::InitBuffers() {
 
 void RenderableComponent::InitRasterizer() {
 	rastDesc = {};
-	rastDesc.CullMode = D3D11_CULL_NONE;
+	rastDesc.CullMode = D3D11_CULL_BACK;
 	rastDesc.FillMode = D3D11_FILL_SOLID;
 
 	Game::instance->SetRes(Game::instance->GetDevice()->CreateRasterizerState(&rastDesc, &rastState));
